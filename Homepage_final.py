@@ -103,7 +103,6 @@ if page == "한국 자동차 보유 현황":
     st.title("자동차 보유 현황")
     car2 = car_excel('car')
     carli = car2['TOTAL'].to_list()
-    print(carli)
     categories = ['2019', '2020', '2021', '2022', '2023']
     fig_car = go.Figure()
     fig_car.add_trace(go.Bar(name='자동차 보유대수', x=categories, y=carli, text='자동차 보유대수', textposition='auto', insidetextanchor='middle'))
@@ -178,7 +177,7 @@ elif page == "기업 분석":
     if graph_page == "유동자산비율":
         st.plotly_chart(fig_rt)
 elif page == "SK렌터카 대리점":
-    st.title("대리점 정보 페이지")
+    st.title("지점 안내")
     file_name = 'data/SKRT.xlsx'
     if file_name:
         try:
