@@ -63,7 +63,7 @@ if page == "한국 자동차 보유 현황":
     fig_car.add_trace(go.Bar(name='자동차 보유대수', x=categories, y=carli, text='자동차 보유대수', textposition='auto', insidetextanchor='middle'))
     fig_car.update_layout(barmode='stack', title="자동차 보유대수", xaxis_title="최근 5년", yaxis_title="자동차 수")
 
-    fig = px.line(car2, x=categories, y='TOTAL', title='Sample Line Chart')
+    fig = px.line(car2, x=categories, y='TOTAL', title='자동차 보유 현황')
     st.plotly_chart(fig)
 
 
