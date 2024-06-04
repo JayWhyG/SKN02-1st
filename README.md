@@ -14,3 +14,5 @@ SK 렌터카 사업 전략 제안
 <img src="https://img.shields.io/badge/Discord-blue?style=flat&logo=Discord&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-green?style=flat&logo=GitHub&logoColor=white"/>
 
 ## 기획안:
+
+[4조_프로젝트 요약.docx](https://github.com/user-attachments/files/15543198/4._.docx)
