@@ -36,7 +36,7 @@ def profit_excel(table):
     prof_txt = (f"SELECT PROFIT FROM {table} ORDER BY ID;")
     with engine.connect() as connection:
         return pd.read_sql(prof_txt, connection)
-
+ 
 def ratio_excel(table):
     rat_txt = (f"SELECT DEBT_RATIO FROM {table} ORDER BY ID;")
     with engine.connect() as connection:
@@ -46,53 +46,6 @@ def car_excel(table):
     car_txt = (f"SELECT TOTAL FROM {table} ORDER BY YEAR;")
     with engine.connect() as connection:
         return pd.read_sql(car_txt, connection)
-
-
-# CSS 스타일 정의
-def set_background(style):
-    if style == 'light':
-        bg_color = '#f0f2f6'
-        text_color = '#000000'
-    else:
-        bg_color = '#1e1e1e'
-        text_color = '#ffffff'
-
-    style = f"""
-    <style>
-        body {{
-            color: {text_color};
-            background-color: {bg_color};
-            background-image: url('C:/ex/ProJ_1/image/image.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-    </style>
-    """
-    st.markdown(style, unsafe_allow_html=True)
-
-
-# 배경 스타일 선택
-#background_style = st.sidebar.radio("배경 스타일 선택", ['light', 'dark'])
-
-# 선택된 스타일에 따라 배경 설정
-#set_background(background_style)
-
-# 테스트함수 ====올리기전에꼭지우세용====
-def xls_test():
-        db_user = "root"
-        db_password = "1234"
-        db_host = "localhost"
-        db_port = "3306"
-        db_name = "project1db"
-
-        engine = create_engine(
-            f"mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
-        )
-        
-        test_xls = "SELECT name FROM company;"
-        with engine.connect() as connection:
-            return pd.read_sql(test_xls, connection)
 
 # 사이드바를 통해 페이지 선택
 st.sidebar.title("목록")
@@ -109,7 +62,7 @@ if page == "한국 자동차 보유 현황":
     fig_car.update_layout(barmode='stack', title="자동차 보유대수", xaxis_title="최근 5년", yaxis_title="자동차 수")
     st.plotly_chart(fig_car)
 elif page == "기업 분석":
-    st.title("3사(SK렌터카, 롯데렌탈, 쏘카)의 최근 5년 매출")
+    st.title("3사(SK렌터카, 롯데렌탈, 쏘카)의 최근 5년 실적")
     st.sidebar.title("매출&영업이익&유동자산비율")
     categories = ['2019', '2020', '2021', '2022', '2023']
     skrv=[]
@@ -170,11 +123,14 @@ elif page == "기업 분석":
 
     graph_page = st.sidebar.radio("3종 정보", ["매출", "영업이익", "유동자산비율"])
     if graph_page == "매출":
+        st.subheader('3사의 매출')
             # 그래프를 Streamlit에 표시
         st.plotly_chart(fig_rv)
     if graph_page == "영업이익":
+        st.subheader('3사의 영업이익')
         st.plotly_chart(fig_pf)
     if graph_page == "유동자산비율":
+        st.subheader('3사의 유동자산비율')
         st.plotly_chart(fig_rt)
 elif page == "SK렌터카 대리점":
     st.title("지점 안내")
