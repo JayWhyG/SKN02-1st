@@ -10,5 +10,3 @@ Team:
 Stack: 
 <img src="https://img.shields.io/badge/Python-blue?style=flat&logo=Python&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-blue?style=flat&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Streamlit-red?style=flat&logo=Streamlit&logoColor=white"/> <img src="https://img.shields.io/badge/VisualStudioCode-blue?style=flat&logo=VisualStudioCode&logoColor=white"/>
 <img src="https://img.shields.io/badge/Discord-blue?style=flat&logo=Discord&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-green?style=flat&logo=GitHub&logoColor=white"/>
-
-How to:
