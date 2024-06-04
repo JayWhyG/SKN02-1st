@@ -13,6 +13,10 @@ SK 렌터카 사업 전략 제안
 <img src="https://img.shields.io/badge/Python-blue?style=flat&logo=Python&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-blue?style=flat&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Streamlit-red?style=flat&logo=Streamlit&logoColor=white"/> <img src="https://img.shields.io/badge/VisualStudioCode-blue?style=flat&logo=VisualStudioCode&logoColor=white"/>
 <img src="https://img.shields.io/badge/Discord-blue?style=flat&logo=Discord&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-green?style=flat&logo=GitHub&logoColor=white"/>
 
+## ERD:
+![image](https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN02-1st-4Team/assets/169422963/5906d3b4-c0bf-4a52-bb71-6c795b3de349)
+
+
 ## 기획안:
 
 [4조_프로젝트 요약.docx](https://github.com/user-attachments/files/15543198/4._.docx)
