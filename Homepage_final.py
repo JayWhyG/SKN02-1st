@@ -47,9 +47,11 @@ def car_excel(table):
     with engine.connect() as connection:
         return pd.read_sql(car_txt, connection)
 
+
 # 사이드바를 통해 페이지 선택
 st.sidebar.title("목록")
 page = st.sidebar.radio("페이지를 선택하세요:", ["한국 자동차 보유 현황", "기업 분석", "SK렌터카 대리점", "FAQ"])
+
 
 # 각 페이지의 내용 정의
 if page == "한국 자동차 보유 현황":
@@ -60,7 +62,11 @@ if page == "한국 자동차 보유 현황":
     fig_car = go.Figure()
     fig_car.add_trace(go.Bar(name='자동차 보유대수', x=categories, y=carli, text='자동차 보유대수', textposition='auto', insidetextanchor='middle'))
     fig_car.update_layout(barmode='stack', title="자동차 보유대수", xaxis_title="최근 5년", yaxis_title="자동차 수")
-    st.plotly_chart(fig_car)
+
+    fig = px.line(car2, x=categories, y='TOTAL', title='Sample Line Chart')
+    st.plotly_chart(fig)
+
+
 elif page == "기업 분석":
     st.title("3사(SK렌터카, 롯데렌탈, 쏘카)의 최근 5년 실적")
     st.sidebar.title("매출&영업이익&유동자산비율")
@@ -100,9 +106,9 @@ elif page == "기업 분석":
         lort.append(rtli[1])
         sort.append(rtli[2])
 
+
         # 데이터 생성
-            
-            # plotly Stacked Bar Graph 생성
+        # plotly Stacked Bar Graph 생성
         fig_rv = go.Figure()
         fig_rv.add_trace(go.Bar(name='SK', x=categories, y=skrv, text='SK', textposition='auto', insidetextanchor='middle'))
         fig_rv.add_trace(go.Bar(name='롯데', x=categories, y=lorv, text='롯데', textposition='auto', insidetextanchor='middle'))
@@ -121,17 +127,21 @@ elif page == "기업 분석":
         fig_rt.add_trace(go.Bar(name='쏘카', x=categories, y=sort, text='쏘카', textposition='auto', insidetextanchor='middle'))
         fig_rt.update_layout(barmode='stack', title="유동비율", xaxis_title="최근 5년", yaxis_title="유동비율")
 
+
     graph_page = st.sidebar.radio("3종 정보", ["매출", "영업이익", "유동자산비율"])
     if graph_page == "매출":
         st.subheader('3사의 매출')
-            # 그래프를 Streamlit에 표시
+        # 그래프를 Streamlit에 표시
         st.plotly_chart(fig_rv)
+
     if graph_page == "영업이익":
         st.subheader('3사의 영업이익')
         st.plotly_chart(fig_pf)
+
     if graph_page == "유동자산비율":
         st.subheader('3사의 유동자산비율')
         st.plotly_chart(fig_rt)
+
 elif page == "SK렌터카 대리점":
     st.title("지점 안내")
     file_name = 'data/SKRT.xlsx'
@@ -148,8 +158,9 @@ elif page == "SK렌터카 대리점":
         except Exception as e:
             st.error(f"파일을 불러오는 중 오류가 발생했습니다: {e}")
 
+
 elif page == "FAQ":
-    st.title("FAQ 페이지")
+    st.title("SK 렌터카 FAQ")
 
     # 엑셀 파일 읽기
     df = pd.read_excel('data/faq.xlsx')
@@ -160,8 +171,3 @@ elif page == "FAQ":
         # 확장 패널에 들어갈 내용 정의
         with current_expander:
             st.write(row['answer'])
-
-# Streamlit 앱 실행 명령어 안내
-# st.sidebar.write("---")
-# st.sidebar.write("앱을 실행하려면 터미널에서 다음 명령어를 실행하세요:")
-# st.sidebar.code("streamlit run app.py")
